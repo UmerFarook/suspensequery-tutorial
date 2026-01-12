@@ -4,15 +4,17 @@ class ErrorBoundary extends React.Component<
     { children: React.ReactNode },
     { hasError: boolean }
 > {
-    state = { hasError: false };
+    state = { hasError: false, error: '' };
 
-    static getDerivedStateFromError() {
-        return { hasError: true };
+    static getDerivedStateFromError(error: Error) {
+
+        return { hasError: true, error: error.message };
     }
 
     render() {
         if (this.state.hasError) {
-            return <h2>Something went wrong</h2>;
+            const error =this.state.error
+            return <h2>Something went wrong <br/> We found the error as {error} </h2>;
         }
         return this.props.children;
     }
