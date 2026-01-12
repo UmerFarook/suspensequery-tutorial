@@ -6,7 +6,7 @@ export const getMembers = async ()=>{
         return await response.json();
     }
     catch (e){
-        return  new Error('Something went terribly wrong')
+        throw  new Error('Something went terribly wrong')
     }
 
 }
