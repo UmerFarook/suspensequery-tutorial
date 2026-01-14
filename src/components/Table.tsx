@@ -1,3 +1,4 @@
+import React from "react";
 
 export type List = {
     _id:number,
@@ -13,7 +14,6 @@ function Table({list} :{list:List[]}) {
             <table>
                 <tbody>
                 {Array.isArray(list) && list?.map(listItem=> <tr key={listItem._id}><td>{listItem.name}</td><td>{listItem.membershipStartDate}</td></tr>)}
-
                 </tbody>
             </table>
         </div>

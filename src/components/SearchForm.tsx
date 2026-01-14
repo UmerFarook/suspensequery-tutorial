@@ -1,6 +1,7 @@
+import React from "react";
 import {type Dispatch, type SetStateAction, useDeferredValue, useEffect, useRef, useState} from "react";
 
-function SearchForm({querySetFn}:{querySetFn: unknown}) {
+function SearchForm({querySetFn}:{querySetFn: (arg:string)=>void}) {
 
     const [searchKey, setSearchKey]  =useState('');
 
@@ -8,7 +9,7 @@ function SearchForm({querySetFn}:{querySetFn: unknown}) {
 
 
 
-    const updateSearchValue = (e)=>{
+    const updateSearchValue = (e:{target:HTMLInputElement})=>{
         setSearchKey(e.target.value);
     }
 
@@ -17,7 +18,7 @@ function SearchForm({querySetFn}:{querySetFn: unknown}) {
     }, [queryValue]);
     return (
         <div>
-            <form  onSubmit={updateSearchValue}>
+            <form>
                 <input onChange={(e)=>{updateSearchValue(e)}}  placeholder={'Enter Person name to search'} type={'text'}/>
             </form>
         </div>

@@ -12,7 +12,6 @@ export const getMembers = async (params: paramsStr)=>{
         if(query !==''){
             urlParam.set('query',query)
         }
-        console.log(params)
         await new Promise((resolve) => setTimeout(resolve, 1000));
         const response = await fetch(`http://localhost:8000/members?${urlParam.toString()}`,{
 
