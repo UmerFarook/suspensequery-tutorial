@@ -20,7 +20,8 @@ export const getMembers = async (params: paramsStr)=>{
         return await response.json();
     }
     catch (e){
-        throw  new Error('Something went terribly wrong')
+        console.log(e.message)
+        throw  new Error(`${e.message} Check your DB connection`)
     }
 
 }
