@@ -2,22 +2,26 @@
   "name": "suspense-query",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite && nodemon --watch src --ext ts --exec ts-node src/api/index.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "api": "nodemon --config nodemon.json"
   },
   "dependencies": {
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "install": "^0.13.0",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tanstack/react-query": "^5.90.16",
     "@tanstack/react-router": "^1.147.3",
-    "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
@@ -27,8 +31,14 @@
     "globals": "^16.5.0",
     "react-router": "^7.12.0",
     "react-router-dom": "^7.12.0",
-    "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.3",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
