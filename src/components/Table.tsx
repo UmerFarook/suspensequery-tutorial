@@ -10,7 +10,7 @@ export type List = {
 
 function Table({list} :{list:List[]}) {
     return (
-        <div>
+        <div className="min-h-screen w-screen flex items-center justify-center ">
             <table>
                 <tbody>
                 {Array.isArray(list) && list?.map(listItem=> <tr key={listItem._id}><td>{listItem.name}</td><td>{listItem.membershipStartDate}</td></tr>)}

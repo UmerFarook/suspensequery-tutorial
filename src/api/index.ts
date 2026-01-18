@@ -5,10 +5,19 @@ import {db} from "./db/dbConntection";
 const app = express();
 app.use(express.json());
 
+
+const allowedOrigins = ['"http://localhost:5173"']
 db.on('error',(error:unknown)=>console.log(error))
 db.once('open',()=>console.log('connected to db'))
 app.use(cors({
-    origin: "http://localhost:5173", // frontend URL
+    origin: (requestOrigin :string, callback)=>{
+        if (!origin) return callback(null, true);
+        if(allowedOrigins.includes(requestOrigin)){
+            return callback(null,true)
+        } else {
+            return callback(new Error("Not allowed by CORS"));
+        }
+    },
     credentials: true
   }));
 app.use((req, res, next) => {
