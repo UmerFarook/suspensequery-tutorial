@@ -1,6 +1,8 @@
 
 import {createBrowserRouter, RouterProvider} from "react-router";
 import Members from "../pages/Members.tsx";
+import RefComponent from "../components/RefComponent.tsx";
+import React from "react";
 
 function AppRouter() {
 
@@ -10,6 +12,9 @@ function AppRouter() {
     },{
         path:'/members',
         element:<Members/>
+    },{
+        path:'/ref',
+        element:<RefComponent/>
     }]);
 
     return (

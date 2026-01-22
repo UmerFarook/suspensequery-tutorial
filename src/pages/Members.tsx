@@ -2,6 +2,7 @@ import React, {MemoExoticComponent, Suspense, useState} from 'react';
 import MembershipTable from "../components/MemebershipTable.tsx";
 import ErrorBoundary from "../components/ErrorBoundry.tsx";
 import SearchForm from "../components/SearchForm";
+import withTheme from "../components/withTheme.tsx";
 
 
 function Members() {
@@ -9,7 +10,8 @@ function Members() {
     const paramsQuery = {
         query:query ||''
     }
-    const LoadingElement: MemoExoticComponent<React.FC> = React.memo(()=><p>Loading data</p>)
+    const LoadingElement: MemoExoticComponent<React.FC> = React.memo(()=><p>Loading data</p>);
+    const DarkTable  = withTheme(MembershipTable)
     return (
         <div>
             <h1>Members</h1>
@@ -17,7 +19,7 @@ function Members() {
                 <SearchForm querySetFn={setQuery} />
                 <Suspense fallback={<LoadingElement/>}>
 
-                        <MembershipTable paramsQuery={paramsQuery}/>
+                        <DarkTable paramsQuery={paramsQuery}/>
                 </Suspense>
             </ErrorBoundary>
 

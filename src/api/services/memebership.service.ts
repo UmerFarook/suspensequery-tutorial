@@ -9,7 +9,7 @@ export const getAllMembers = async (request: Request, response:Response) =>{
     try {
         const { id } = request.params;
         const {dataFromDb:getDataFromMongoDb, existingIds:extractIDsOnly} = await retrieveThData();
-
+     console.log(id,'id')
         const {query} = request.query;
 
         if(query){
@@ -32,8 +32,8 @@ export const getAllMembers = async (request: Request, response:Response) =>{
             return response.status(404).json({ message: "User Id not found" });
         }
 
-       // const member = getDataFromMongoDb.filter((m: MemberTypes) => Number(m.userId) === numericId);
-       // return response.status(200).json(member);
+       const member = getDataFromMongoDb.filter((m) => Number(m.userId) === numericId);
+       return response.status(200).json(member);
     } catch (err) {
         return response.status(500).json({ message: "Internal server error" });
     }
