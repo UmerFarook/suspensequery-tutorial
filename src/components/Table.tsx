@@ -13,7 +13,7 @@ function Table({list} :{list:List[]}) {
         <div className="min-h-screen w-screen flex items-center justify-center ">
             <table>
                 <tbody>
-                {Array.isArray(list) && list?.map(listItem=> <tr key={listItem._id}><td>{listItem.name}</td><td>{listItem.membershipStartDate}</td></tr>)}
+                {Array.isArray(list) && list?.map(listItem=> <tr data-testId={`test${listItem._id}`} key={listItem._id}><td>{listItem.name}</td><td>{listItem.membershipStartDate}</td></tr>)}
                 </tbody>
             </table>
         </div>

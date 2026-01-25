@@ -7,7 +7,7 @@ export const getMembers = async (params: paramsStr)=>{
     try{
 
         const {queryKey} = params
-        const {query} = queryKey[1];
+        const query = ''
         const urlParam = new URLSearchParams();
         if(query !==''){
             urlParam.set('query',query)

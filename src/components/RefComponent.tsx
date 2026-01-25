@@ -1,10 +1,10 @@
-import React from "react";
+import React, {RefObject} from "react";
 import {useRef, useState} from "react";
 
 function RefComponent() {
      const [number, setNumber] = useState<number>(0);
 
-     const numInput  = useRef<HTMLInputElement>(null)
+     const numInput: RefObject<HTMLInputElement | null>  = useRef<HTMLInputElement>(null)
      const updateValue =()=>{
          setNumber(Number(numInput?.current?.value) || 0);
 
