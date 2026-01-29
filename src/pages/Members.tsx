@@ -18,6 +18,7 @@ function Members() {
     const DarkTable  = withTheme(MembershipTable)
     return (
         <div>
+            {query}
             <NavLink to={'/ref'}>Ref</NavLink>
             <h1 data-testid={'title'} style={{'color':theme }}>Members</h1>
             <button onClick={()=>setTheme('orange')}>Change Theme</button>

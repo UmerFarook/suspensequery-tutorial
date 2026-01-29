@@ -1,18 +1,22 @@
 
+type QueryParam = {
+    query:string
+}
 type paramsStr = {
-    queryKey: unknown
+    queryKey: QueryParam[]
 }
 
 export const getMembers = async (params: paramsStr)=>{
     try{
 
-        const {queryKey} = params
-        const query = ''
+        const {queryKey} = params;
+        const [queryParam] = queryKey.filter(item=> Object(item).hasOwnProperty('query'))
+        const {query} = queryParam || '';
         const urlParam = new URLSearchParams();
         if(query !==''){
             urlParam.set('query',query)
         }
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         const response = await fetch(`http://localhost:8000/members?${urlParam.toString()}`,{
 
         });

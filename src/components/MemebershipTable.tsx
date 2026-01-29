@@ -5,6 +5,7 @@ import {getMembers} from "../service/members.service.ts";
 
 function MembershipTable({paramsQuery}:{paramsQuery:{query:string}} ) {
 
+
     const {data} = useSuspenseQuery({
         queryKey:['members',paramsQuery],
         queryFn: getMembers

@@ -3,8 +3,10 @@ import membersRoute from "./routes/members_routes";
 import cors from "cors";
 import {db} from "./db/dbConntection";
 import {checkBody} from "./middleware/middleware.ts";
+import helmet from "helmet";
 const app = express();
 app.use(express.json());
+app.use(helmet())
 
 
 const allowedOrigins = ['http://localhost:5173'];

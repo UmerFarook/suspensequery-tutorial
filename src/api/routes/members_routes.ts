@@ -4,7 +4,7 @@ import {checkBody} from "../middleware/middleware.ts";
 
 const membersRoute =Router();
 
-membersRoute.get('/',getAllMembers)
+membersRoute.get('/',checkBody,getAllMembers)
 membersRoute.get('/:id',checkBody,getAllMembers)
 membersRoute.put('/',updateMembers)
 membersRoute.delete('/',deleteMember)

@@ -7,7 +7,7 @@ function WithTheme(Component) {
     useEffect(() => {
         setTheme('dark')
     }, []);
-    return ({props}:{props:ReactNode})=><div className={theme} ><Component {...props}/></div>;
+    return (props)=><div className={theme} ><Component {...props}/></div>;
 }
 
 export default WithTheme;
