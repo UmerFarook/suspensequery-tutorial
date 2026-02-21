@@ -115,7 +115,7 @@ const fileDataJSON = async (MEMBERS_JSON_FILE: string): Promise<{ fileData: Memb
     return { fileData, existingIDs };
 };
 
-const retrieveThData = async ()=>{
+export const retrieveThData = async ()=>{
     const getDataFromMongoDb = await User.find();
     const getExistingIDs =await User.find({},{'userId':1})
     const extractIDsOnly = getExistingIDs.map(idSet => idSet.userId)

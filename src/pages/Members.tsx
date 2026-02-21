@@ -5,6 +5,8 @@ import SearchForm from "../components/SearchForm";
 import withTheme from "../components/withTheme.tsx";
 import {useThemeFromContext} from "../hooks/useTheme.tsx";
 import {NavLink} from "react-router";
+import WithGlobalFont from "../components/withGlobalFont.tsx";
+import withGlobalFont from "../components/withGlobalFont.tsx";
 
 
 function Members() {
@@ -15,7 +17,8 @@ function Members() {
 
     const {theme,setTheme} = useThemeFromContext();
     const LoadingElement: MemoExoticComponent<React.FC> = React.memo(()=><p>Loading data</p>);
-    const DarkTable  = withTheme(MembershipTable)
+    const DarkTable  = withTheme(MembershipTable);
+    const BiggerFontTable = withGlobalFont(DarkTable)
     return (
         <div>
             {query}
@@ -26,7 +29,7 @@ function Members() {
                 <SearchForm querySetFn={setQuery} />
                 <Suspense fallback={<LoadingElement/>}>
 
-                        <DarkTable paramsQuery={paramsQuery}/>
+                        <BiggerFontTable paramsQuery={paramsQuery}/>
                 </Suspense>
             </ErrorBoundary>
 

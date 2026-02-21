@@ -4,13 +4,11 @@ import {type Dispatch, type SetStateAction, useDeferredValue, useEffect, useRef,
 function SearchForm({querySetFn}:{querySetFn: (arg:string)=>void}) {
 
     const [searchKey, setSearchKey]  =useState('');
+    const inputRel = useRef<HTMLInputElement>(0)
 
     const queryValue  =useDeferredValue(searchKey);
-
-
-
-    const updateSearchValue = (e:{target:HTMLInputElement})=>{
-        setSearchKey(e.target.value);
+    const updateSearchValue = (value:string)=>{
+        setSearchKey(value);
     }
 
     useEffect(() => {
@@ -19,7 +17,7 @@ function SearchForm({querySetFn}:{querySetFn: (arg:string)=>void}) {
     return (
         <div>
             <form>
-                <input onChange={(e)=>{updateSearchValue(e)}}  placeholder={'Enter Person name to search'} type={'text'}/>
+                <input ref={inputRel}  onChange={(e)=>{updateSearchValue(inputRel.current?.value)}}  placeholder={'Enter Person name to search'} type={'text'}/>
             </form>
         </div>
     );
